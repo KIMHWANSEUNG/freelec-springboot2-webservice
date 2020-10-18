@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 
-import static  org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -23,8 +23,8 @@ public class HelloControllerTest {
 
 
     @Test
-    public void hello가_리턴된다() throws Exception{
-        String hello="hello";
+    public void hello가_리턴된다() throws Exception {
+        String hello = "hello";
 
         mvc.perform(get("/hello")) //HTTP GET요청
                 .andExpect(status().isOk())     //mvc.perform의 결과를 검증 ,HTTP header의 Status를 검증, 우리가 흔히 알고있는 200,404,500등의 에러를 검증
@@ -32,17 +32,17 @@ public class HelloControllerTest {
     }
 
     @Test
-    public void hellDto가_리턴된다() throws Exception{
+    public void hellDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
 
         mvc.perform(
                 get("/hello/dto")
-                        .param("name",name)
-                        .param("amount",String.valueOf(amount)))
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name",is(name)))
-                .andExpect(jsonPath("$.amount",is(amount)));
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
         //jsonPath: json 응답값을 필드별로 검증할 수 있는 메소드
         //$를 기준으로 필드명을 명시, 예제에서는 name과 amount를 검증
     }

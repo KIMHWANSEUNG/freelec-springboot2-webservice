@@ -1,6 +1,5 @@
-package com.khs.book.springboot.dto;
+package com.khs.book.springboot.web.dto;
 
-import com.khs.book.springboot.web.dto.HelloResponseDto;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,13 +11,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 // 터미널에 gradlew wrapper --gradle-version 4.10.2을 치고 다운그레이드 진행  => 테스트 성공
 public class HelooResponseDtoTest {
     @Test
-    public void 롬복_기능_테스트(){
+    public void 롬복_기능_테스트() {
         //given
         String name = "test";
         int amount = 1000;
 
         //when
-        HelloResponseDto dto =new HelloResponseDto(name,amount);
+        HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         //then
         assertThat(dto.getName()).isEqualTo(name);
