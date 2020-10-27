@@ -1,6 +1,7 @@
 package com.khs.book.springboot.web;
 
 import com.khs.book.springboot.service.posts.PostsService;
+import com.khs.book.springboot.web.dto.PostsListResponseDto;
 import com.khs.book.springboot.web.dto.PostsResponseDto;
 import com.khs.book.springboot.web.dto.PostsSaveRequestDto;
 import com.khs.book.springboot.web.dto.PostsUpdateRequestDto;
@@ -26,7 +27,11 @@ public class PostsApiController {
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
-
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id){
+        postsService.delete(id);
+        return id;
+    }
 }
 
 
